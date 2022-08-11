@@ -1,9 +1,9 @@
 //import logo from './logo.svg';
 import './App.css';
-import React, {useState} from "react";
+import React, {useState} from 'react'
 //import { createPortal } from 'react-dom';
-import {ColorBlock} from "./components/ColorBlock";
-import ColorForm from "./components/ColorForm";
+import {ColorBlock} from './components/ColorBlock'
+import ColorForm from './components/ColorForm'
 
 const DEFAULT_COLORS = ['violet', 'blue','lightblue', 'green', 'greenyellow', 'yellow','orange', 'red']
 
