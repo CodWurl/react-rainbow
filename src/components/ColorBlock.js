@@ -1,4 +1,6 @@
-import React from 'react'
+import React from "react";
+//import ColorForm from './ColorForm'
+
 
 function ColorBlock(props){
     return (
@@ -10,4 +12,4 @@ function ColorBlock(props){
 }
 
 // Do not forget to export your component once you have built it!
-export default ColorBlock
+export default ColorBlock;

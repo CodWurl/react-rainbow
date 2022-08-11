@@ -1,6 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import React from "react";
+//import './App.css';
+//import ColorBlock from './ColorBlock'
 
-function ColorForm(props){
+export default function ColorForm (props) {
+    let [inputColor, setInputColor] = useState(props.colors);
+
+    const handleInput = (e) => {
+       e.preventDefault();
+       props.addColor(e.target.value);
+       setInputColor('');
+
+    }
+    return (<div>
+        <form>
+            <input type="text"
+            onChange={handleInput} value={inputColor}></input>
+            <button type='submit'>Add Color</button>
+        </form>
+        </div>)
+}
+
+//export default ColorForm;
+
+
+/*function ColorForm(props){
     let [input, setInput] = useState('')
 
     return (
@@ -12,4 +36,5 @@ function ColorForm(props){
             </form>
         </div>
     )
-}
+}*/
+
