@@ -1,36 +1,18 @@
-import React, { useState } from 'react'
-//import React from 'react'
-//import './App.css';
-//import ColorBlock from './components/ColorBlock'
 
-export default function ColorForm(props) {
-    let [inputColor, setInputColor] = useState(props.colors);
 
-    const handleInput = (e) => {
-        e.preventDefault();
-        props.addColor(e.target.value);
-        setInputColor('');
-
+    /*const handleSubmit = (e) => {
+        // We still want to eliminate the default behavior of our form submittal
+        e.preventDefault()
+        // addColor, the function we just built, should be available within props.
+        props.addColor(input)
     }
-    return (
-    <div>
-        <form>
-            <input type="text"
-                onChange={handleInput} value={inputColor}></input>
-            <button type='submit'>Add Color</button>
-        </form>
-    </div>)
-}
 
-
-
-
-/*function ColorForm(props){
-    let [input, setInput] = useState('')
+    function ColorForm(props){
+        let [input, setInput] = useState('')
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input type="text" 
                 onChange={(e) => setInput(e.target.value)} />
                 <button type="submit">Submit!</button>
@@ -39,3 +21,30 @@ export default function ColorForm(props) {
     )
 }*/
 
+import React, {useState} from 'react'
+//import ColorForm from './components/ColorForm'
+
+
+
+export default function ColorForm(props){
+    let [inputColor, setInputColor] = useState(props.colors);
+
+    const handleInput = (e) => {
+        // We still want to eliminate the default behavior of our form submittal
+        e.preventDefault();
+        // addColor, the function we just built, should be available within props.
+        props.addColor(e.target.value);
+        setInputColor('');
+    }
+
+
+    return (
+        <div>
+            <form>
+                <input type="text" 
+                onChange={handleInput}value={inputColor}></input> 
+                <button type='submit'>Add Color</button>
+            </form>
+        </div>
+    )
+}
