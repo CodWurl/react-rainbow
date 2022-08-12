@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 //mport React, {useState} from 'react'
 // Make sure to import the component we just built:
-import { Colorblock } from "./components/ColorBlock"
-import './App.css'
-import ColorForm from './components/ColorForm'
+import { Colorblock } from "./components/ColorBlock";
+import './App.css';
+import ColorForm from "./components/ColorForm";
 
 
 
@@ -34,13 +34,17 @@ import ColorForm from './components/ColorForm'
 const DEFAULT_COLORS = ['RED', 'YELLOW','BROWN', 'BLUE','WHITE','BLACK', 'GREEN', 'VIOLET', 'TEAL', 'GREENYELLOW', 'LIGHTBLUE', 'GRAY', 'ORANGE']
 
 
-
 function App() {
     const [colors, setColors]= useState(DEFAULT_COLORS);
-    const colorMap = colors.map(c => <Colorblock color={c} />)
+
+    const handleAddColor = (newColor) => {
+        setColors ([...colors, newColor]);
+    }
+
+    //const colorMap = colors.map(c => <Colorblock color={c} />)}
     return (<div className="App">
-        {colorMap}
-        <ColorForm addColor={setColors}/>
+        {colors.map (c => <Colorblock color={c} />)}
+        <ColorForm addColor={handleAddColor}/>
         </div>);
 }
 

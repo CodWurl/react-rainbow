@@ -29,12 +29,12 @@ import React, {useState} from 'react'
 export default function ColorForm(props){
     let [inputColor, setInputColor] = useState(props.colors);
 
-    const handleInput = (e) => {
+    const handleAddColor = (e) => {
         // We still want to eliminate the default behavior of our form submittal
         e.preventDefault();
         // addColor, the function we just built, should be available within props.
-        props.addColor(e.target.value);
-        setInputColor('');
+        props.addColor(inputColor);
+        
     }
 
 
@@ -42,8 +42,8 @@ export default function ColorForm(props){
         <div>
             <form>
                 <input type="text" 
-                onChange={handleInput}value={inputColor}></input> 
-                <button type='submit'>Add Color</button>
+                onChange={e =>setInputColor}value={inputColor}></input> 
+                <button type='submit'onClick={handleAddColor}>Add Color</button>
             </form>
         </div>
     )
